@@ -11,5 +11,5 @@ def main_hello():
     # cur = db.cursor()
     # cur.execute('SELECT username, firstname FROM User')
     # results = cur.fetchall()
-    return 'Hello world'
-    #return render_template("index.html")
+
+    return render_template("index.html")
