@@ -14,5 +14,5 @@ def main_hello():
     # create_table_queries = open("create_tables.sql", "r")
     # cur.execute(create_table_queries)
     # results = cur.fetchall()
-    return 'Hello world'
-    #return render_template("index.html")
+
+    return render_template("index.html")
