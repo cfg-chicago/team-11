@@ -12,9 +12,9 @@ def reflection_route():
         response = request.form.get("reflectionform")
 
     	cur.execute('INSERT INTO Blogs (Username, Content, Type) Values (%s, %s,%s);', ('doej', response, 'share'))
-        db.close()
-	return render_template("index.html")
-
+    	return redirect(url_for('main.main_hello'))
+    db.close()
+    # results = cur.fetchall()
     return render_template("reflection.html")
 
     #If method = Post 
@@ -27,20 +27,13 @@ def feedback_route():
 
 	if request.method == "POST":
 		f1 = request.form.get("feedback")
-		print type(f1)
 		f2 = request.form.get("feedback1")
-		print type(f2)
 		f3 = request.form.get("feedback2")
-		print type(f3)
 		f4 = request.form.get("feedback3")
-		print type(f4)
 		f5 = request.form.get("feedback4")
-		print type(f5)
 		f6 = request.form.get("feedback5")
-    		print type(f6)
-		f7 = request.form.get("feedback6")
-		print type(f7)
-    		cur.execute('INSERT INTO Feedback (JourneyID, Scale, Reason, Positive, Addition, Lesson, Person, Intersting) Values(%s, %s, %s,%s, %s,%s, %s,%s);',(1,f1, f2, f3,f4,f5,f6, f7))
+    	f7 = request.form.get("feedback6")
 
-		return render_template("index.html")
-    	return render_template("feedback.html")
+    	cur.execute('INSERT INTO Feedback (JourneyID, Scale, Reason, Positive, Addition, Lesson, Person, Intersting) Values(%s, %s,%s, %s,%s, %s,%s);',(1,f1, f2, f3,f4,f5,f6, f7))
+
+    	redirect(url_for('main.main_hello'))
