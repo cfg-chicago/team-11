@@ -6,3 +6,4 @@ DROP TABLE Blogs;
 DROP TABLE Maps;
 DROP TABLE Journeys;
 DROP TABLE Users;
+DROP TABLE Feedback;
