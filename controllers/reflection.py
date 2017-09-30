@@ -10,8 +10,14 @@ def reflection_route():
     cur = db.cursor()
     if request.method == "POST":
         response = request.form.get("reflectionform")
+        privacy = request.form.get("privacy")
 
-    	cur.execute('INSERT INTO Blogs (Username, Content, Type) Values (%s, %s,%s);', ('doej', response, 'share'))
+        if privacy == "public":
+        	privacy_setting = 'share'
+        else:
+        	privacy_setting = 'reflect'
+
+    	cur.execute('INSERT INTO Blogs (Username, Content, Type) Values (%s, %s,%s);', ('doej', response, privacy_setting))
     	return redirect(url_for('main.main_hello'))
     db.close()
     # results = cur.fetchall()
