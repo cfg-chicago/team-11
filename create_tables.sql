@@ -49,6 +49,18 @@ CREATE TABLE User_Journeys (
 
 );
 
+CREATE TABLE Journey_Blogs (
+	JourneyID int			NOT NULL,
+	BlogID int				NOT NULL,
+	FOREIGN KEY (JourneyID)
+		REFERENCES Journey(JourneyID)
+		ON DELETE CASCADE,
+	FOREIGN KEY (BlogID)
+		REFERENCES Blog(BlogID)
+		ON DELETE CASCADE,
+	PRIMARY KEY(JourneyID, BlogID)
+);
+
 CREATE TABLE Map_Journeys (
 	MapID int				NOT NULL,
 	JourneyID int			NOT NULL,
