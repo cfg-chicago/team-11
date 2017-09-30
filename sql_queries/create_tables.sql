@@ -77,3 +77,14 @@ CREATE TABLE Map_Journeys (
 
 
 );
+
+CREATE TABLE Feedback (
+	JourneyID int NOT NULL PRIMARY KEY,
+	Scale int NOT NULL,
+	Positive text,
+	Addition text,
+	Lesson text,
+	Person text,
+	Intersting text
+
+);
