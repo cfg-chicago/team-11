@@ -12,7 +12,7 @@ CREATE TABLE Blogs(
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
 	Created timestamp DEFAULT now(),
 	Type enum('preparation', 'reflection', 'share'),
-	Content text
+	Content text,
 	FOREIGN KEY (Username)
 		REFERENCES ON Users(Username)
 );
