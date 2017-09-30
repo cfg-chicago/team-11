@@ -3,9 +3,11 @@
 
 <html lang="en">
 	<head>
+		<script src="jquery-3.2.1.js"></script>
+
 		<meta charset="utf-8">
 		<title>Journey Map</title>
-		<link rel="stylesheet" href="{{url_for('static', filename="css/styles.css") }}" type="text/css">
+		<link rel="stylesheet" href= "{{url_for('static',filename="css/styles.css") }}" type="text/css">
 	</head>
 
 	<body>
@@ -13,6 +15,28 @@
 		<div>
 			<canvas id="map_canvas"></canvas>
 		</div>
+
+
+		<button id="showmenu"> Show Menu </button>
+
+		<div class= menu>
+			<ul id="menu">
+				<a href = "#"><li> Name of Event </li> </a>
+				<a href = "#"><li> Prepare </li> </a>
+				<a href = "#"><li> Journey </li> </a>
+				<a href = "#"><li> Reflect </li> </a>
+				<a href = "#"><li> Share </li> </a>
+			</ul>
+		</div>
+
+
+		<script>
+			$("#showmenu").click(function(){
+				$(".menu").toggle();
+			});
+		</script>
+
+
 	</body>
 </html>
 
