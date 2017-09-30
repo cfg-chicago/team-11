@@ -7,12 +7,12 @@
 
 		<meta charset="utf-8">
 		<title>Journey Map</title>
-		<link rel="stylesheet" href= "{{url_for('static',filename="css/styles.css") }}" type="text/css">
+		<link rel="stylesheet" href= "../static/css/styles.css" type="text/css">
 	</head>
 
 	<body>
             <p> Hello {{uname}} </p>
-	  <script src="{{url_for('static', filename="js/script.js")}}"></script>
+	  <!--<script src="{{url_for('static', filename="js/script.js")}}"></script>-->
 		<div>
 			<canvas id="map_canvas"></canvas>
 		</div>
@@ -31,12 +31,30 @@
 			</ul>
 		</div>
 
-		<script> $(".menu").toggle(); </script>
-
 		<script>
-			$("#showmenu").click(function(){
-				$(".menu").toggle();
-			});
+		var slidePushTime = 300; /* milliseconds */
+
+		var openMenu = function(){
+			$('.menu').animate({
+				bottom: "0"
+			}, slidePushTime);
+			$('.menu').addClass("open");
+			console.log('opening');
+		}
+		var closeMenu = function(){
+			$('.menu').animate({
+				bottom: "-100%"
+			}, slidePushTime);
+			$('.menu').removeClass("open");
+			console.log('closing');
+		}
+		var toggleMenu = function() {
+			$('.menu').hasClass("open") ? closeMenu() : openMenu()
+		}
+
+		$("#showmenu").click(function(){
+			toggleMenu();
+		});
 		</script>
 
 

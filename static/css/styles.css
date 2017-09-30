@@ -15,10 +15,10 @@ html, body {
 
 .background-panes {
 	background: linear-gradient(
-    to right, 
-    #302720 0%, 
-    #302720 50%, 
-    #2a2763 50%, 
+    to right,
+    #302720 0%,
+    #302720 50%,
+    #2a2763 50%,
     #2a2763 100%
 	);
 	height: 100%;
@@ -60,10 +60,7 @@ html, body {
 	left: 0;
 }
 
-canvas {
-    background: #453325;
-}
-
-.showmenu{
-	float:right;
+.menu{
+	bottom: -100%;
+	position: fixed;
 }
