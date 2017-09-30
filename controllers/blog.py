@@ -12,7 +12,7 @@ def reflection_route():
     cur.execute('SELECT * FROM Blogs WHERE Type="share";')
     blog_posts = cur.fetchall()
     cur.execute('SELECT FirstName,LastName,Username FROM Users;')
-    users = cur.fetchall
+    users = cur.fetchall()
 
     print blog_posts
     for blog in blog_posts:
@@ -20,7 +20,7 @@ def reflection_route():
     	for user in users:
     		if userid == user['Username']:
     			blog['firstname'] = user['FirstName']
-    			blog['lastname'] = user['lastname']
+    			blog['lastname'] = user['LastName']
 
     options = {"blog_posts":blog_posts}
-    return render_template("blog.html", s**options)
+    return render_template("blog.html", **options)
