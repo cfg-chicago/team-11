@@ -17,6 +17,7 @@ def reflection_route():
         else:
         	privacy_setting = 'reflect'
 
+        #would like to have session cookie here	
     	cur.execute('INSERT INTO Blogs (Username, Content, Type) Values (%s, %s,%s);', ('doej', response, privacy_setting))
     	return redirect(url_for('main.main_hello'))
     db.close()

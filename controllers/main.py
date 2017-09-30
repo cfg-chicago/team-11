@@ -41,3 +41,11 @@ def check_login(uname, psw):
 
     return len(results) == 1
 
+
+@main.route('/journey')
+def journey_route():
+    return render_template("journey.html")
+
+@main.route('/prepare')
+def prepare_route():
+    return render_template("prepare.html")

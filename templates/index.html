@@ -24,7 +24,7 @@
 			<ul id="menu" style="list-style-type:none">
 				<li> Name of Journey </li>
 				<a href = "#"><li> Prepare </li> </a>
-				<a href = "#"><li> Journey Recap</li> </a>
+				<a href = {{url_for('main.journey_route')}}><li> Journey Recap</li> </a>
 				<a href = {{url_for('reflection.reflection_route')}}><li> Reflect </li> </a>
 				<a href = {{url_for('blog.blog_route')}}><li> Share </li> </a>
 				<a href = {{url_for('reflection.feedback_route')}}><li> Feedback Form </li></a>
