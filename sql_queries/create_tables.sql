@@ -1,5 +1,5 @@
 CREATE TABLE Users (
-	UserID int AUTO_INCREMENT PRIMARY KEY,
+	Username varchar(20) PRIMARY KEY,
 	FirstName varchar(255) NOT NULL,
 	LastName varchar(255) NOT NULL,
 	Password varchar(15) NOT NULL,
@@ -8,17 +8,19 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Blogs(
-	UserID int NOT NULL,
+	Username varchar(20) ,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
 	Type enum('preparation', 'reflection', 'share'),
 	Content text
+	FOREIGN KEY (Username)
+		REFERENCES ON Users(Username)
 );
 
 CREATE TABLE Maps(
-	UserID int NOT NULL,
+	Username varchar(20) NOT NULL,
 	MapID int AUTO_INCREMENT PRIMARY KEY,
-	FOREIGN KEY (UserID)
-		REFERENCES User(UserID)
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
 );
 
 CREATE TABLE Journeys(
@@ -29,15 +31,15 @@ CREATE TABLE Journeys(
 );
 
 CREATE TABLE User_Journeys (
-	UserID int NOT NULL,
+	Username int NOT NULL,
 	JourneyID int NOT NULL,
-	FOREIGN KEY (UserID)
-		REFERENCES User(UserID)
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
 		ON DELETE CASCADE,
 	FOREIGN KEY (JourneyID)
 		REFERENCES Journey(JourneyID)
 		ON DELETE CASCADE,
-	PRIMARY KEY(UserID, JourneyID)
+	PRIMARY KEY(Username, JourneyID)
 
 );
 
