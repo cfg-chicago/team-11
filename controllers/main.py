@@ -4,9 +4,20 @@ from extensions import connect_to_database
 
 main = Blueprint('main', __name__, template_folder='templates')
 
-@main.route('/login')
+@main.route('/login', methods=['GET', 'POST'])
 def main_login():
-    return render_template('login.html')
+    if request.method == 'POST':
+        uname = request.form.get('uname')
+        psw = request.form.get('psw')
+        print('POST WAS RECEIVED')
+
+        if check_login(uname,psw):
+            return render_template("index.html", uname=uname)
+        else:
+            return "anything"
+
+
+    return render_template('login.html', uname='$USER')
 
 @main.route('/')
 def main_hello():
@@ -17,3 +28,12 @@ def main_hello():
     # results = cur.fetchall()
 
     return render_template("index.html")
+
+def check_login(uname, psw):
+    db = connect_to_database()
+    cur = db.cursor()
+    cur.execute('SELECT Password FROM Users WHERE Username="%s";', uname)
+    results = cur.fetchall()
+    print(results)
+
+    return len(results) == 1

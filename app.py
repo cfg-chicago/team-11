@@ -11,7 +11,7 @@ app.register_blueprint(controllers.reflection)
 app.register_blueprint(controllers.profile)
 app.register_blueprint(controllers.blog)
 
-
+#check_login("doej", "12345")
 # Listen on external IPs
 
 if __name__ == '__main__':

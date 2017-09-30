@@ -1,5 +1,5 @@
-CREATE TABLE User (
-	UserID int AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Users (
+	Username varchar(20) PRIMARY KEY,
 	FirstName varchar(255) NOT NULL,
 	LastName varchar(255) NOT NULL,
 	Password varchar(15) NOT NULL,
@@ -7,21 +7,24 @@ CREATE TABLE User (
 
 );
 
-CREATE TABLE Blog(
-	UserID int NOT NULL,
+CREATE TABLE Blogs(
+	Username varchar(20) ,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
+	Created timestamp DEFAULT now(),
 	Type enum('preparation', 'reflection', 'share'),
-	Content text
+	Content text,
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
 );
 
-CREATE TABLE Map(
-	UserID int NOT NULL,
+CREATE TABLE Maps(
+	Username varchar(20) NOT NULL,
 	MapID int AUTO_INCREMENT PRIMARY KEY,
-	FOREIGN KEY (UserID)
-		REFERENCES User(UserID)
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
 );
 
-CREATE TABLE Journey(
+CREATE TABLE Journeys(
 	JourneyID int AUTO_INCREMENT PRIMARY KEY,
 	Description varchar(255),
 	Lat decimal(6,4) NOT NULL,
@@ -29,26 +32,34 @@ CREATE TABLE Journey(
 );
 
 CREATE TABLE User_Journeys (
-	UserID int NOT NULL,
+	Username varchar(20) NOT NULL,
 	JourneyID int NOT NULL,
-	FOREIGN KEY (UserID)
-		REFERENCES User(UserID)
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
 		ON DELETE CASCADE,
 	FOREIGN KEY (JourneyID)
-		REFERENCES Journey(JourneyID)
+		REFERENCES Journeys(JourneyID)
 		ON DELETE CASCADE,
-	PRIMARY KEY(UserID, JourneyID)
+	PRIMARY KEY(Username, JourneyID)
 
+);
+
+CREATE TABLE User_Skills (
+	Skills varchar(20) NOT NULL,
+	Username varchar(20) NOT NULL,
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
+		ON DELETE CASCADE
 );
 
 CREATE TABLE Journey_Blogs (
 	JourneyID int NOT NULL,
 	BlogID int NOT NULL,
 	FOREIGN KEY (JourneyID)
-		REFERENCES Journey(JourneyID)
+		REFERENCES Journeys(JourneyID)
 		ON DELETE CASCADE,
 	FOREIGN KEY (BlogID)
-		REFERENCES Blog(BlogID)
+		REFERENCES Blogs(BlogID)
 		ON DELETE CASCADE,
 	PRIMARY KEY(JourneyID, BlogID)
 );
@@ -57,12 +68,24 @@ CREATE TABLE Map_Journeys (
 	MapID int NOT NULL,
 	JourneyID int NOT NULL,
 	FOREIGN KEY (MapID)
-		REFERENCES Map(MapID)
+		REFERENCES Maps(MapID)
 		ON DELETE CASCADE,
 	FOREIGN KEY (JourneyID)
-		REFERENCES Journey(JourneyID)
+		REFERENCES Journeys(JourneyID)
 		ON DELETE CASCADE,
 	PRIMARY KEY(MapID, JourneyID)
 
+
+);
+
+CREATE TABLE Feedback (
+	JourneyID int NOT NULL,
+	Scale varchar(1)  NOT NULL,
+	Reason varchar(280) PRIMARY KEY,
+	Positive text,
+	Addition text,
+	Lesson text,
+	Person text,
+	Intersting text
 
 );
