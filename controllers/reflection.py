@@ -37,3 +37,4 @@ def feedback_route():
     	cur.execute('INSERT INTO Feedback (JourneyID, Scale, Reason, Positive, Addition, Lesson, Person, Intersting) Values(%s, %s,%s, %s,%s, %s,%s);',(1,f1, f2, f3,f4,f5,f6, f7))
 
     	redirect(url_for('main.main_hello'))
+    return render_template("feedback.html")
