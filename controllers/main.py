@@ -9,11 +9,9 @@ def main_login():
     if request.method == 'POST':
         uname = request.form.get('uname')
         psw = request.form.get('psw')
+        print('POST WAS RECEIVED')
 
-        if (check_login(uname, psw)):
-            return render_template("index.html", uname=uname)
-        else:
-            return "You don goofed"
+        return render_template("index.html", uname=uname)
 
     return render_template('login.html', uname='$USER')
 
