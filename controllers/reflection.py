@@ -13,3 +13,8 @@ def reflection_route():
     cur.execute('INSERT INTO Blogs (UserID, Content) Values (1, response);')
     # results = cur.fetchall()
     return render_template("reflection.html")
+
+    #If method = Post 
+    	#record reflection for student and add to table
+
+    

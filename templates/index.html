@@ -1,4 +1,5 @@
-<!doctype html>
+{% extends "base.html" %}
+{% block content %}
 
 <html lang="en">
 	<head>
@@ -8,7 +9,9 @@
 	</head>
 
 	<body>
-	  <script src="{{url_for('static', filename="js/script.js") }}"></script>
-	  <h1>Hello World!</h1>
+	  <script src="{{url_for('static', filename="js/script.js")}}"></script>
+		<div>
+			<canvas id="map_canvas"></canvas>
+		</div>
 	</body>
 </html>
