@@ -28,6 +28,7 @@ function drawMap() {
 		// For each line
 		for (var lineId = 0, numLines = map.lines.length; lineId < numLines; lineId++) {
 			
+			
 			var line = map.lines[lineId];
 			
 			ctx.beginPath();              

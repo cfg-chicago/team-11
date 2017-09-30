@@ -11,9 +11,7 @@ CREATE TABLE Blog(
 	UserID int NOT NULL,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
 	Type enum('preparation', 'reflection', 'share'),
-	Content text,
-	FOREIGN KEY (UserID)
-			REFERENCES User(UserID)
+	Content text
 );
 
 CREATE TABLE Map(
