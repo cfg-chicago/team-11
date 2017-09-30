@@ -8,21 +8,30 @@
 	</head>
 
 	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 
 	  <!-- Add icon library -->
 		<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css') }}">
 
 		<div class="card">
-		  <h1>Name</h1>
-		  <p class="title">Student</p>
-		  <p>School</p>
-		  <a href="#"><i class="fa fa-dribbble"></i></a>
-		  <a href="#"><i class="fa fa-twitter"></i></a>
-		  <a href="#"><i class="fa fa-linkedin"></i></a>
-		  <a href="#"><i class="fa fa-facebook"></i></a>
-			<p> Goals: </p>
-			<p> Skills: </p>
+		  	<h1>Embarc</h1>
+		  	<img src="https://investforkidschicago.org/wp-content/uploads/2015/08/Embarc1.jpg" alt="http://www.embarcchicago.org/" style="width:104px;height:142px;">
+		  	<p class="title">Senior @ CPS</p>
+		  	<a href="https://twitter.com/embarcchicago" class="twitter-follow-button" data-show-count="false">Follow @embarcchicago</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		  	<p> </p>
+		  	<div class="fb-follow" data-href="https://www.facebook.com/embarcchicago/" data-layout="button" data-size="small" data-show-faces="true"></div>
+
+			
 		</div>
+		<p> Goals: </p>
+		<p> Skills: </p>
 	</body>
 </html>
 
