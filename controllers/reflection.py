@@ -10,7 +10,8 @@ def reflection_route():
     cur = db.cursor()
     if request.method == "POST":
         response = request.form.get("reflectionform")
-    	cur.execute('INSERT INTO Blog (UserID, Content) Values (1, %s);', (response))
+	print response
+    	cur.execute('INSERT INTO Blog (UserID, Content) Values (%s, %s);', (1, response))
     db.close()
     # results = cur.fetchall()
     return render_template("reflection.html")
