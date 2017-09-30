@@ -30,17 +30,42 @@ function drawMap() {
 			
 			var line = map.lines[lineId];
 			
-			ctx.beginPath();              
-			ctx.lineWidth = "10";
-			ctx.strokeStyle = line.color; 
-			ctx.moveTo(line.x[0], line.y[0]);
-			
-			for(var i = 1, n = line.x.length; i < n; i++)
+			var dims = [
 			{
-				ctx.lineTo(line.x[i], line.y[i]);
-			}
+				"color": "#453325",
+				"width": 40,
+				"xoffset": -10,
+				"yoffset": 2
+			},
+			{
+				"color": "#34261C",
+				"width": 22,
+				"xoffset": 0,
+				"yoffset": 0
+			},
+			{
+				"color": line.color,
+				"width": 20,
+				"xoffset": 0,
+				"yoffset": 0
+			}];
+			
+			for(var c = 0; c < 3; c++)
+			{
+				ctx.beginPath();              
+				ctx.lineWidth = dims.width;
+				ctx.strokeStyle = dims.color; 
+				ctx.moveTo(line.x[0] + dims[c].xoffset,
+						line.y[0] + dims[c].yoffset);
 				
-			ctx.stroke();
+				for(var i = 1, n = line.x.length; i < n; i++)
+				{
+					ctx.lineTo(line.x[i] + dims[c].xoffset,
+							line.y[i] + dims[c].yoffset);
+				}
+					
+				ctx.stroke();
+			}
 			
 		}
 	}

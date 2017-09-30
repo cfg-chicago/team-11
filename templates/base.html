@@ -2,29 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="Embarc">
+	<meta name="description" content="Embarc Journey Map">
 	<meta name="keywords" content="HTML,CSS,SQL,JavaScript">
 	<meta name="author" content="">
-    <link rel="stylesheet" href="/static/css/style.css" />
 
     <title>Embarc</title>
 </head>
 <header>
-	<div class="navbar" >
+	<!--<div class="navbar" >
 	  <a href="#home">Home</a>
 	  <a href="#news">News</a>
 	  <a href="#contact">Contact</a>
-	</div>
+	</div>-->
 	<link rel="stylesheet" href="{{url_for('static', filename="css/base.css") }}" type="text/css">
 </header>
 <body>
   <div style="text-align:center;">
     {% block content %}{% endblock %}
   </div>
-  <script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 <footer>
-	<p style="text-align:center;">Copyright 2017</p>
+	<!-- <p style="text-align:center;">Copyright 2017</p -->
 </footer>
 
 </html>
