@@ -33,6 +33,10 @@ html, body {
 	margin: auto;
 }
 
+#map {
+	height:100%;
+}
+
 .node {
 	display: absolute;
 	border-radius: 50%;
