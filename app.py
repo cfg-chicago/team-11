@@ -7,6 +7,7 @@ import controllers
 app = Flask(__name__, template_folder='templates')
 
 app.register_blueprint(controllers.main)
+app.register_blueprint(controllers.reflection)
 
 
 # Listen on external IPs
