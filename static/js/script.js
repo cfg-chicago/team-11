@@ -1,77 +1,48 @@
 console.log('Hello Console!');
 
+
 var map = {
-	"lines" : [
+	"pathways" : [
 		{
 			"name" : "career",
 			"color" : "#0000FF",
-			"x" : [10, 101],
-			"y" : [50, 35]
+			"x" : [0.1, 0.6, 0.4],
+			"y" : [0.4, 0.1, 0.3]
 		}
 	]
 }
 
-function drawMap() {
+var progress = {
+	"career" : 2
+}
+
+function loadNodes() {
 	
-	// Get and resize canvas
-	var canvas = document.getElementById('map_canvas');
-				
-	// Draw the base icon
-	if (canvas.getContext) {
-		var ctx = canvas.getContext('2d');
+	var map_element = document.getElementById("map");
+	var offsetX = map_element.offsetLeft;
+	var width = map_element.offsetWidth;
+	var height = map_element.offsetHeight;
+			
+	console.log(offsetX)
+	
+	for (var i = 0, n = map.pathways.length; i < n; i++) {
 		
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight - 15;
+		var pathway = map.pathways[i];
 		
-		ctx.translate(ctx.canvas.width/2, ctx.canvas.height/2);
-		
-		// For each line
-		for (var lineId = 0, numLines = map.lines.length; lineId < numLines; lineId++) {
-			
-			var line = map.lines[lineId];
-			
-			var dims = [
-			{
-				"color": "#453325",
-				"width": 40,
-				"xoffset": -10,
-				"yoffset": 2
-			},
-			{
-				"color": "#34261C",
-				"width": 22,
-				"xoffset": 0,
-				"yoffset": 0
-			},
-			{
-				"color": line.color,
-				"width": 20,
-				"xoffset": 0,
-				"yoffset": 0
-			}];
-			
-			for(var c = 0; c < 3; c++)
-			{
-				ctx.beginPath();              
-				ctx.lineWidth = dims.width;
-				ctx.strokeStyle = dims.color; 
-				ctx.moveTo(line.x[0] + dims[c].xoffset,
-						line.y[0] + dims[c].yoffset);
-				
-				for(var i = 1, n = line.x.length; i < n; i++)
-				{
-					ctx.lineTo(line.x[i] + dims[c].xoffset,
-							line.y[i] + dims[c].yoffset);
-				}
-					
-				ctx.stroke();
-			}
-			
+		for(var j = 1, num = progress[pathway.name]; j < num; j++)
+		{
+			var new_node = document.createElement("div");
+			new_node.className = "node";
+			new_node.style.position = "absolute";
+			new_node.style.left = (map.pathways[i].x[j] * width) + offsetX;
+			new_node.style.top = (map.pathways[i].y[j] * height);
+			map_element.appendChild(new_node);
 		}
 	}
+	
 }
 
 window.onload = function() {
-	drawMap();
-	window.addEventListener('resize', drawMap, false);
+	loadNodes();
+	//window.addEventListener('resize', updateNodes, false);
 }
