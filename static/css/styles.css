@@ -28,3 +28,7 @@ html, body {
 canvas {
     background: #453325;
 }
+
+.showmenu{
+	float:right;
+}
