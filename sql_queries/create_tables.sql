@@ -44,6 +44,14 @@ CREATE TABLE User_Journeys (
 
 );
 
+CREATE TABLE User_Skills (
+	Skills varchar(20) NOT NULL,
+	Username varchar(20) NOT NULL,
+	FOREIGN KEY (Username)
+		REFERENCES Users(Username)
+		ON DELETE CASCADE
+);
+
 CREATE TABLE Journey_Blogs (
 	JourneyID int NOT NULL,
 	BlogID int NOT NULL,
