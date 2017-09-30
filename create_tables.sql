@@ -20,21 +20,21 @@ CREATE TABLE Blog(
 	PRIMARY KEY (BlogID)
 );
 
-CREATE TABLE Map{
+CREATE TABLE Map(
 	UserID int				NOT NULL,
 	MapID int 				NOT NULL,
 	PRIMARY KEY (MapID),
 	FOREIGN KEY (UserID)
 		REFERENCES User(UserID)
-};
+);
 
-CREATE TABLE Journey{
+CREATE TABLE Journey(
 	JourneyID int 			NOT NULL,
 	Description varchar(255),
 	Lat decimal(6,4)		NOT NULL,
 	Lon decimal(6,4)		NOT NULL,
 	PRIMARY KEY (JourneyID)
-};
+);
 
 CREATE TABLE User_Journeys (
 	UserID int 				NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE User_Journeys (
 	FOREIGN KEY (JourneyID)
 		REFERENCES Journey(JourneyID)
 		ON DELETE CASCADE,
-	PRIMARY KEY(UserID,JourneyID)
+	PRIMARY KEY(UserID, JourneyID)
 
 );
 
@@ -58,5 +58,7 @@ CREATE TABLE Map_Journeys (
 	FOREIGN KEY (JourneyID)
 		REFERENCES Journey(JourneyID)
 		ON DELETE CASCADE
+	PRIMARY KEY(MapID, JourneyID)
+
 
 );
