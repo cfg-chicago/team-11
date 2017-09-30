@@ -10,10 +10,7 @@ def main_login():
         uname = request.form.get('uname')
         psw = request.form.get('psw')
 
-        if (check_login(uname, psw)):
-            return render_template("index.html", uname=uname)
-        else:
-            return "You don goofed"
+        return render_template("index.html", uname=uname)
 
     return render_template('login.html', uname='$USER')
 
