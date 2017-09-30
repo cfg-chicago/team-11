@@ -34,7 +34,7 @@ def main_hello():
 def check_login(uname, psw):
     db = connect_to_database()
     cur = db.cursor()
-    cur.execute('SELECT Password FROM Users WHERE Username="%s";', uname)
+    cur.execute('SELECT * FROM Users WHERE Username=%s;', (uname))
     results = cur.fetchall()
     print(results)
 
