@@ -1,28 +1,2 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Embarc Journey Map">
-	<meta name="keywords" content="HTML,CSS,SQL,JavaScript">
-	<meta name="author" content="">
-
-    <title>Embarc</title>
-</head>
-<header>
-	<!--<div class="navbar" >
-	  <a href="#home">Home</a>
-	  <a href="#news">News</a>
-	  <a href="#contact">Contact</a>
-	</div>-->
-	<link rel="stylesheet" href="{{url_for('static', filename="css/base.css") }}" type="text/css">
-</header>
-<body>
-  <div style="text-align:center;">
-    {% block content %}{% endblock %}
-  </div>
-</body>
-<footer>
-	<!-- <p style="text-align:center;">Copyright 2017</p -->
-</footer>
-
-</html>
+   {% block content %}{% endblock %}
