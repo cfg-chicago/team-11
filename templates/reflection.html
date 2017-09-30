@@ -2,8 +2,9 @@
 <head>
   <title>Reflection</title>
 </head>
-  <link rel = "stylesheet" type = "text/css" href = "css/reflection.css"/>
+  <link rel = "stylesheet" type = "text/css" href = "{{url_for('static', filename="css/reflection.css") }}"/>
 <body>
+  <img class= logo src = "https://www.embarcchicago.org/_res/img/facebook_share_icon.png" height = "80" width= "80">
   <h1> After Journey Attendance Journal </h1>
   <div class = prompt>
     <p> Reflect on the journey you just experienced by responding to the following prompts. </p>
@@ -13,6 +14,15 @@
     <p> Paragraph 2: Describe what you learned or what may have surprised you during the journey. Describe the
         deeper connection to what you learned or practiced and how you may apply it to your life </p>
   </div>
+
+  Enter your response here:<br>
+  <textarea rows= "30" cols= "100">
+  </textarea>
+
+  <form>
+    <br>
+    <input type="submit">
+  </form>
 </body>
 
 
