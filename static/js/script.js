@@ -50,7 +50,7 @@ function drawMap() {
 				"yoffset": 0
 			}];
 			
-			for(int c = 0; c < 3; c++)
+			for(var c = 0; c < 3; c++)
 			{
 				ctx.beginPath();              
 				ctx.lineWidth = dims.width;
