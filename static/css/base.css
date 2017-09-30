@@ -17,7 +17,8 @@
     text-decoration: none;
 }
 
-/* Main content */
-.main {
-    margin-top: 30px; /* Add a top margin to avoid content overlay */
+:root {
+	--bg-dark: #34261C;
+	--bg: #453325;
+	--line-edge: #FFBA0D
 }
