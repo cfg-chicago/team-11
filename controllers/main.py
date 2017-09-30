@@ -4,6 +4,9 @@ from extensions import connect_to_database
 
 main = Blueprint('main', __name__, template_folder='templates')
 
+@main.route('/login')
+def main_login():
+    return render_template('login.html')
 
 @main.route('/')
 def main_hello():
