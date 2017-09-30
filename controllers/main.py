@@ -34,4 +34,4 @@ def check_login(uname, psw):
     results = cur.fetchall()
     print(results)
 
-    return results == psw
+    return results[0]["Password"] == psw
