@@ -13,7 +13,7 @@ CREATE TABLE Blogs(
 	Type enum('preparation', 'reflection', 'share'),
 	Content text,
 	FOREIGN KEY (Username)
-		REFERENCES ON Users(Username)
+		REFERENCES Users(Username)
 );
 
 CREATE TABLE Maps(
