@@ -11,7 +11,11 @@ def main_login():
         psw = request.form.get('psw')
         print('POST WAS RECEIVED')
 
-        return render_template("index.html", uname=uname)
+        if check_login(uname,psw):
+            return render_template("index.html", uname=uname)
+        else:
+            return "anything"
+
 
     return render_template('login.html', uname='$USER')
 
