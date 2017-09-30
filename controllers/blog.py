@@ -9,18 +9,18 @@ def reflection_route():
     db = connect_to_database()
     cur = db.cursor()
     t = 'share'    
-    cur.execute('SELECT * FROM Blog WHERE Type="share";')
+    cur.execute('SELECT * FROM Blogs WHERE Type="share";')
     blog_posts = cur.fetchall()
-    cur.execute('SELECT FirstName,LastName,UserID FROM User;')
+    cur.execute('SELECT FirstName,LastName,Username FROM User;')
     users = cur.fetchall
 
     print blog_posts
     for blog in blog_posts:
-    	userid = blog['UserID']
+    	userid = blog['Username']
     	for user in users:
-    		if userid == user['UserID']:
+    		if userid == user['Username']:
     			blog['firstname'] = user['FirstName']
     			blog['lastname'] = user['lastname']
 
     options = {"blog_posts":blog_posts}
-    return render_template("blog.html", **options)
+    return render_template("blog.html", s**options)
