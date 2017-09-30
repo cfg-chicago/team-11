@@ -14,7 +14,7 @@ CREATE TABLE Blogs(
 	Type enum('preparation', 'reflection', 'share'),
 	Content text,
 	FOREIGN KEY (Username)
-		REFERENCES ON Users(Username)
+		REFERENCES Users(Username)
 );
 
 CREATE TABLE Maps(
@@ -32,7 +32,7 @@ CREATE TABLE Journeys(
 );
 
 CREATE TABLE User_Journeys (
-	Username int NOT NULL,
+	Username varchar(20) NOT NULL,
 	JourneyID int NOT NULL,
 	FOREIGN KEY (Username)
 		REFERENCES Users(Username)
