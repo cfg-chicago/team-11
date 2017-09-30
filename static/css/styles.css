@@ -13,6 +13,41 @@ html, body {
 
 }
 
+.background-panes {
+	background: linear-gradient(
+    to right, 
+    #302720 0%, 
+    #302720 50%, 
+    #2a2763 50%, 
+    #2a2763 100%
+	);
+	height: 100%;
+	width: 100%;
+  );
+}
+
+.background-img {
+    display:block;
+	max-height: 100%;
+	height: 100%;
+	margin: auto;
+}
+
+.node {
+	display: absolute;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	background: #ffffff;
+    transition: width 0.5s, height 0.5s, color 0.75s;
+}
+
+.node:hover {
+	background: #ffcc00;
+	width: 20px;
+	height: 20px;
+}
+
 .map_canvas {
 	position : absolute;
 	top: 0;
