@@ -11,7 +11,7 @@ CREATE TABLE Blogs(
 	Username varchar(20) ,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
 	Type enum('preparation', 'reflection', 'share'),
-	Content text
+	Content text,
 	FOREIGN KEY (Username)
 		REFERENCES ON Users(Username)
 );
