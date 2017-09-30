@@ -9,6 +9,7 @@ app = Flask(__name__, template_folder='templates')
 app.register_blueprint(controllers.main)
 app.register_blueprint(controllers.reflection)
 app.register_blueprint(controllers.profile)
+app.register_blueprint(controllers.blog)
 
 
 # Listen on external IPs
