@@ -4,7 +4,7 @@ import config
 
 def connect_to_database():
   options = {
-    'host': config.env['host'],
+    'host': '52.90.43.79',
     'user': config.env['user'],
     'passwd': config.env['password'],
     'db': config.env['db'],
