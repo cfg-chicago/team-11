@@ -9,6 +9,7 @@ def main_login():
     if request.method == 'POST':
         uname = request.form.get('uname')
         psw = request.form.get('psw')
+        print('POST WAS RECEIVED')
 
         return render_template("index.html", uname=uname)
 
