@@ -11,7 +11,7 @@ def reflection_route():
     t = 'share'    
     cur.execute('SELECT * FROM Blogs WHERE Type="share";')
     blog_posts = cur.fetchall()
-    cur.execute('SELECT FirstName,LastName,Username FROM User;')
+    cur.execute('SELECT FirstName,LastName,Username FROM Users;')
     users = cur.fetchall
 
     print blog_posts
