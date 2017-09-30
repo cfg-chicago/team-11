@@ -37,7 +37,7 @@ CREATE TABLE User_Journeys (
 		REFERENCES Users(Username)
 		ON DELETE CASCADE,
 	FOREIGN KEY (JourneyID)
-		REFERENCES Journey(JourneyID)
+		REFERENCES Journeys(JourneyID)
 		ON DELETE CASCADE,
 	PRIMARY KEY(Username, JourneyID)
 
@@ -47,10 +47,10 @@ CREATE TABLE Journey_Blogs (
 	JourneyID int NOT NULL,
 	BlogID int NOT NULL,
 	FOREIGN KEY (JourneyID)
-		REFERENCES Journey(JourneyID)
+		REFERENCES Journeys(JourneyID)
 		ON DELETE CASCADE,
 	FOREIGN KEY (BlogID)
-		REFERENCES Blog(BlogID)
+		REFERENCES Blogs(BlogID)
 		ON DELETE CASCADE,
 	PRIMARY KEY(JourneyID, BlogID)
 );
@@ -59,10 +59,10 @@ CREATE TABLE Map_Journeys (
 	MapID int NOT NULL,
 	JourneyID int NOT NULL,
 	FOREIGN KEY (MapID)
-		REFERENCES Map(MapID)
+		REFERENCES Maps(MapID)
 		ON DELETE CASCADE,
 	FOREIGN KEY (JourneyID)
-		REFERENCES Journey(JourneyID)
+		REFERENCES Journeys(JourneyID)
 		ON DELETE CASCADE,
 	PRIMARY KEY(MapID, JourneyID)
 
