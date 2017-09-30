@@ -31,7 +31,7 @@ CREATE TABLE Journeys(
 );
 
 CREATE TABLE User_Journeys (
-	Username int NOT NULL,
+	Username varchar(20) NOT NULL,
 	JourneyID int NOT NULL,
 	FOREIGN KEY (Username)
 		REFERENCES Users(Username)
