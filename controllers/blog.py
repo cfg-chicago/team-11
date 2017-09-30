@@ -5,7 +5,7 @@ blog = Blueprint('blog', __name__, template_folder='templates')
 
 
 @blog.route('/blog', methods=['GET', 'POST'])
-def reflection_route():
+def blog_route():
     db = connect_to_database()
     cur = db.cursor()
     t = 'share'    

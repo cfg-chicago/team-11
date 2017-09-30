@@ -77,3 +77,15 @@ CREATE TABLE Map_Journeys (
 
 
 );
+
+CREATE TABLE Feedback (
+	JourneyID int NOT NULL,
+	Scale varchar(1)  NOT NULL,
+	Reason varchar(280) PRIMARY KEY,
+	Positive text,
+	Addition text,
+	Lesson text,
+	Person text,
+	Intersting text
+
+);
