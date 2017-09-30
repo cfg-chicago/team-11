@@ -25,8 +25,6 @@ def main_hello():
 
     return render_template("index.html")
 
-def do_the_login(uname):
-
 def check_login(uname, psw):
     db = connect_to_database()
     cur = db.cursor()
