@@ -10,6 +10,7 @@ CREATE TABLE Users (
 CREATE TABLE Blogs(
 	Username varchar(20) ,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
+	Created timestamp DEFAULT now(),
 	Type enum('preparation', 'reflection', 'share'),
 	Content text,
 	FOREIGN KEY (Username)

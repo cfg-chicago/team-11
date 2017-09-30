@@ -7,7 +7,7 @@
 
 {% for blog in blog_posts %}
 	<h3>
-		{{blog['BlogID']}}
+		Published by: {{blog['firstname']}} {{blog['lastname']}}
 	</h3>
     <p>
         {{blog['Content']}}
