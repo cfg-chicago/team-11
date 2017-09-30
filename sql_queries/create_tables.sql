@@ -3,18 +3,17 @@ CREATE TABLE User (
 	FirstName varchar(255) NOT NULL,
 	LastName varchar(255) NOT NULL,
 	Password varchar(15) NOT NULL,
-	Email varchar(255) NOT NULL,
+	Email varchar(255) NOT NULL
 
 );
 
 CREATE TABLE Blog(
 	UserID int NOT NULL,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
-	--TimeCreated datetime	NOT NULL,
 	Type enum('preparation', 'reflection', 'share'),
 	Content text,
 	FOREIGN KEY (UserID)
-			REFERENCES User(UserID),
+			REFERENCES User(UserID)
 );
 
 CREATE TABLE Map(
@@ -28,7 +27,7 @@ CREATE TABLE Journey(
 	JourneyID int AUTO_INCREMENT PRIMARY KEY,
 	Description varchar(255),
 	Lat decimal(6,4) NOT NULL,
-	Lon decimal(6,4) NOT NULL,
+	Lon decimal(6,4) NOT NULL
 );
 
 CREATE TABLE User_Journeys (
