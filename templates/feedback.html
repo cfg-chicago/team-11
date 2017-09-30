@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title> Feedback Survey </title>
+</head>
+<body>
+  <p> <b> Feedback Form </b> </p>
+  <p> <i> 1. On a scale of 1 to 5 with 5 being the Strongest, how strongly would
+          you recommend this journey to a friend of another Embarc class? </i></p>
+  <form> <input type="text" name = "score">
+  <p> <i> 2. Why did you give the journy this rating? </i></p>
+    <form action="{{url_for('reflection.feedback_route')}}" method="POST">
+      <input type="text" name ="feedback1">
+    </form>
+  <p><i> 3. What did you like best about this journey?(Please do not respond
+            with the food - think about the EXPERIENCE!) </i></p>
+    <form action="{{url_for('reflection.feedback_route')}}" method="POST">
+      <input type="text" name ="feedback2">
+    </form>
+  <p><i> 4. What would you add to this journey or how would you improve it? </i> </p>
+    <form action="{{url_for('reflection.feedback_route')}}" method="POST">
+      <input type="text" name ="feedback3">
+    </form>
+  <p><i> 5. What is one lesson you learned about yourself or the world that you
+            will take with you into the rest of the day/week/year? </i></p>
+    <form action="{{url_for('reflection.feedback_route')}}" method="POST">
+      <input type="text" name ="feedback4">
+    </form>
+  <p><i> 6. Who is someone you met that you really enjoyed meeting? </i> </p>
+    <form action="{{url_for('reflection.feedback_route')}}" method="POST">
+      <input type="text" name ="feedback5">
+    </form>
+  <p><i> 7. What is one cool/interesting/exciting thing from this journey that
+            you would tell someone about who was not on the journey? </i></p>
+    <form action="{{url_for('reflection.feedback_route')}}" method="POST">
+      <input type="text" name ="feedback6">
+      <br><br>
+      <input type="submit">
+
+    </form>
+
+
+</body>
+
+</html>

@@ -9,11 +9,13 @@ def main_login():
     if request.method == 'POST':
         uname = request.form.get('uname')
         psw = request.form.get('psw')
+        print('POST WAS RECEIVED')
 
-        if (check_login(uname, psw)):
+        if check_login(uname,psw):
             return render_template("index.html", uname=uname)
         else:
-            return "You don goofed"
+            return "anything"
+
 
     return render_template('login.html', uname='$USER')
 
@@ -30,8 +32,8 @@ def main_hello():
 def check_login(uname, psw):
     db = connect_to_database()
     cur = db.cursor()
-    cur.execute('SELECT Password FROM USERS WHERE Username="%s";', uname)
+    cur.execute('SELECT Password FROM Users WHERE Username="%s";', uname)
     results = cur.fetchall()
     print(results)
 
-    return results == psw
+    return results[0]["Password"] == psw
