@@ -10,6 +10,7 @@ CREATE TABLE User (
 CREATE TABLE Blog(
 	UserID int NOT NULL,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
+	Created timestamp DEFAULT now(),
 	Type enum('preparation', 'reflection', 'share'),
 	Content text
 );

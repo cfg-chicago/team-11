@@ -11,7 +11,16 @@ def reflection_route():
     t = 'share'    
     cur.execute('SELECT * FROM Blog WHERE Type='share';')
     blog_posts = cur.fetchall()
+    cur.execute('SELECT FirstName,LastName,UserID FROM User;')
+    users = cur.fetchall
+
     print blog_posts
-    # results = cur.fetchall()
+    for blog in blog_posts:
+    	userid = blog['UserID']
+    	for user in users:
+    		if userid == user['UserID']:
+    			blog['firstname'] = user['FirstName']
+    			blog['lastname'] = user['lastname']
+
     options = {"blog_posts":blog_posts}
     return render_template("blog.html", **options)
