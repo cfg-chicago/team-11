@@ -1,14 +1,15 @@
-<!doctype html>
+{% extends "base.html" %}
+{% block content %}
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Journey Map</title>
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="{{url_for('static', filename="css/styles.css") }}" type="text/css">
 	</head>
 
 	<body>
-		<script src="js/script.js"></script>
+	  <script src="{{url_for('static', filename="js/script.js")}}"></script>
 		<div>
 			<canvas id="map_canvas"></canvas>
 		</div>

@@ -9,7 +9,8 @@ main = Blueprint('main', __name__, template_folder='templates')
 def main_hello():
     # db = connect_to_database()
     # cur = db.cursor()
-    # cur.execute('SELECT username, firstname FROM User')
+    # create_table_queries = open("create_tables.sql", "r")
+    # cur.execute(create_table_queries)
     # results = cur.fetchall()
-    return 'Hello world'
-    #return render_template("index.html")
+
+    return render_template("index.html")

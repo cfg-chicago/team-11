@@ -12,27 +12,29 @@ CREATE TABLE Blog(
 	UserID int				NOT NULL,
 	BlogID int				NOT NULL,
 	Title varchar(255)		NOT NULL,
-	Content varchar(5000),
+	TimeCreated datetime	NOT NULL,
+	Type enum('preparation', 'reflection', 'share'),
+	Content text,
 	FOREIGN KEY (UserID)
-			REFERENCES User(UserID)
+			REFERENCES User(UserID),
 	PRIMARY KEY (BlogID)
 );
 
-CREATE TABLE Map{
+CREATE TABLE Map(
 	UserID int				NOT NULL,
 	MapID int 				NOT NULL,
 	PRIMARY KEY (MapID),
 	FOREIGN KEY (UserID)
 		REFERENCES User(UserID)
-};
+);
 
-CREATE TABLE Journey{
+CREATE TABLE Journey(
 	JourneyID int 			NOT NULL,
 	Description varchar(255),
 	Lat decimal(6,4)		NOT NULL,
 	Lon decimal(6,4)		NOT NULL,
 	PRIMARY KEY (JourneyID)
-};
+);
 
 CREATE TABLE User_Journeys (
 	UserID int 				NOT NULL,
@@ -42,9 +44,21 @@ CREATE TABLE User_Journeys (
 		ON DELETE CASCADE,
 	FOREIGN KEY (JourneyID)
 		REFERENCES Journey(JourneyID)
-		ON DELETE CASCADE
-	PRIMARY KEY(UserID,JourneyID)
+		ON DELETE CASCADE,
+	PRIMARY KEY(UserID, JourneyID)
 
+);
+
+CREATE TABLE Journey_Blogs (
+	JourneyID int			NOT NULL,
+	BlogID int				NOT NULL,
+	FOREIGN KEY (JourneyID)
+		REFERENCES Journey(JourneyID)
+		ON DELETE CASCADE,
+	FOREIGN KEY (BlogID)
+		REFERENCES Blog(BlogID)
+		ON DELETE CASCADE,
+	PRIMARY KEY(JourneyID, BlogID)
 );
 
 CREATE TABLE Map_Journeys (
@@ -53,8 +67,10 @@ CREATE TABLE Map_Journeys (
 	FOREIGN KEY (MapID)
 		REFERENCES Map(MapID)
 		ON DELETE CASCADE,
-	FOREIGN KEY (Journey)
+	FOREIGN KEY (JourneyID)
 		REFERENCES Journey(JourneyID)
-		ON DELETE CASCADE
+		ON DELETE CASCADE,
+	PRIMARY KEY(MapID, JourneyID)
+
 
 );
