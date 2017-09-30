@@ -16,11 +16,12 @@
   </div>
 
   Enter your response here:<br>
-  <textarea rows= "30" cols= "100">
+  <textarea rows= "30" cols= "100" form="reflectionform">
   </textarea>
 
-  <form>
+  <form action="{{url_for('reflection.reflection_route'}}" method="post" name="reflectionform">
     <input type="submit">
+
   </form>
 </body>
 
