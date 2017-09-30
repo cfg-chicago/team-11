@@ -55,13 +55,13 @@ function drawMap() {
 				ctx.beginPath();              
 				ctx.lineWidth = dims.width;
 				ctx.strokeStyle = dims.color; 
-				ctx.moveTo(line.x[0] + dims.xoffset[c],
-						line.y[0] + dims.yoffset[c]);
+				ctx.moveTo(line.x[0] + dims[c].xoffset,
+						line.y[0] + dims[c].yoffset);
 				
 				for(var i = 1, n = line.x.length; i < n; i++)
 				{
-					ctx.lineTo(line.x[i] + dims.xoffset[c],
-							line.y[i] + dims.yoffset[c]);
+					ctx.lineTo(line.x[i] + dims[c].xoffset,
+							line.y[i] + dims[c].yoffset);
 				}
 					
 				ctx.stroke();
