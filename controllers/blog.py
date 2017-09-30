@@ -9,7 +9,7 @@ def reflection_route():
     db = connect_to_database()
     cur = db.cursor()
     t = 'share'    
-    cur.execute('SELECT * FROM Blog;')
+    cur.execute('SELECT * FROM Blog WHERE Type='share';')
     blog_posts = cur.fetchall()
     print blog_posts
     # results = cur.fetchall()
