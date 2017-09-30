@@ -4,8 +4,6 @@ from extensions import connect_to_database
 
 main = Blueprint('main', __name__, template_folder='templates')
 
-def import_text_file(filename):
-	return open(filename, "r")
 
 @main.route('/')
 def main_hello():
