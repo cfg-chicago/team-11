@@ -1,2 +1,2 @@
 INSERT INTO Users(Username, FirstName, LastName, Password, Email)
-	Values ("doej", "Jane", "Doe", "12345", "jd@gmail.com")
+	Values ("embarc", "Embarc", "Chicago", "EC2017", "EC@gmail.com")
