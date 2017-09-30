@@ -1,4 +1,4 @@
-CREATE TABLE User (
+CREATE TABLE Users (
 	UserID int AUTO_INCREMENT PRIMARY KEY,
 	FirstName varchar(255) NOT NULL,
 	LastName varchar(255) NOT NULL,
@@ -7,21 +7,21 @@ CREATE TABLE User (
 
 );
 
-CREATE TABLE Blog(
+CREATE TABLE Blogs(
 	UserID int NOT NULL,
 	BlogID int AUTO_INCREMENT PRIMARY KEY,
 	Type enum('preparation', 'reflection', 'share'),
 	Content text
 );
 
-CREATE TABLE Map(
+CREATE TABLE Maps(
 	UserID int NOT NULL,
 	MapID int AUTO_INCREMENT PRIMARY KEY,
 	FOREIGN KEY (UserID)
 		REFERENCES User(UserID)
 );
 
-CREATE TABLE Journey(
+CREATE TABLE Journeys(
 	JourneyID int AUTO_INCREMENT PRIMARY KEY,
 	Description varchar(255),
 	Lat decimal(6,4) NOT NULL,
