@@ -1,34 +1,33 @@
 CREATE TABLE User (
-	UserID int IDENTITY(1,1) PRIMARY KEY,
+	UserID int AUTO_INCREMENT PRIMARY KEY,
 	FirstName varchar(255) NOT NULL,
 	LastName varchar(255) NOT NULL,
 	Password varchar(15) NOT NULL,
-	Email varchar(255) NOT NULL,
+	Email varchar(255) NOT NULL
 
 );
 
 CREATE TABLE Blog(
 	UserID int NOT NULL,
-	BlogID int IDENTITY(1,1) PRIMARY KEY,
-	--TimeCreated datetime	NOT NULL,
+	BlogID int AUTO_INCREMENT PRIMARY KEY,
 	Type enum('preparation', 'reflection', 'share'),
 	Content text,
 	FOREIGN KEY (UserID)
-			REFERENCES User(UserID),
+			REFERENCES User(UserID)
 );
 
 CREATE TABLE Map(
 	UserID int NOT NULL,
-	MapID int IDENTITY(1,1) PRIMARY KEY,
+	MapID int AUTO_INCREMENT PRIMARY KEY,
 	FOREIGN KEY (UserID)
 		REFERENCES User(UserID)
 );
 
 CREATE TABLE Journey(
-	JourneyID int IDENTITY(1,1) PRIMARY KEY,
+	JourneyID int AUTO_INCREMENT PRIMARY KEY,
 	Description varchar(255),
 	Lat decimal(6,4) NOT NULL,
-	Lon decimal(6,4) NOT NULL,
+	Lon decimal(6,4) NOT NULL
 );
 
 CREATE TABLE User_Journeys (
