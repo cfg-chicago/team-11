@@ -1,0 +1,11 @@
+.menu{
+	overflow: hidden;
+	transition: max-height 300ms;
+	max-height: 0;
+}
+.menu.open{
+	max-height: 100px;
+}
+.showmenu{
+	float:right;
+}

@@ -8,7 +8,9 @@ main = Blueprint('main', __name__, template_folder='templates')
 def main_login():
     if request.method == 'POST':
         uname = request.form.get('uname')
+        print (uname)
         psw = request.form.get('psw')
+        print (psw)
         print('POST WAS RECEIVED')
 
         if check_login(uname,psw):
@@ -32,8 +34,10 @@ def main_hello():
 def check_login(uname, psw):
     db = connect_to_database()
     cur = db.cursor()
-    cur.execute('SELECT Password FROM Users WHERE Username="%s";', uname)
+    cur.execute('SELECT * FROM Users WHERE Username=%s;', (uname))
     results = cur.fetchall()
     print(results)
 
+
     return len(results) == 1
+

@@ -10,8 +10,14 @@ def reflection_route():
     cur = db.cursor()
     if request.method == "POST":
         response = request.form.get("reflectionform")
+        privacy = request.form.get("privacy")
 
-    	cur.execute('INSERT INTO Blogs (Username, Content, Type) Values (%s, %s,%s);', ('doej', response, 'share'))
+        if privacy == "public":
+        	privacy_setting = 'share'
+        else:
+        	privacy_setting = 'reflect'
+
+    	cur.execute('INSERT INTO Blogs (Username, Content, Type) Values (%s, %s,%s);', ('doej', response, privacy_setting))
     	return redirect(url_for('main.main_hello'))
     db.close()
     # results = cur.fetchall()
@@ -32,9 +38,9 @@ def feedback_route():
 		f4 = request.form.get("feedback3")
 		f5 = request.form.get("feedback4")
 		f6 = request.form.get("feedback5")
-    	f7 = request.form.get("feedback6")
+    		f7 = request.form.get("feedback6")
 
-    	cur.execute('INSERT INTO Feedback (JourneyID, Scale, Reason, Positive, Addition, Lesson, Person, Intersting) Values(%s, %s,%s, %s,%s, %s,%s);',(1,f1, f2, f3,f4,f5,f6, f7))
+    		cur.execute('INSERT INTO Feedback (JourneyID, Scale, Reason, Positive, Addition, Lesson, Person, Intersting) Values(%s, %s, %s,%s, %s,%s, %s,%s);',(1,f1, f2, f3,f4,f5,f6, f7))
 
-    	redirect(url_for('main.main_hello'))
-    return render_template("feedback.html")
+    		return redirect(url_for('main.main_hello'))
+	return render_template("feedback.html")

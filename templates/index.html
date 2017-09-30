@@ -3,7 +3,7 @@
 
 <html lang="en">
 	<head>
-		<script src="jquery-3.2.1.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<meta charset="utf-8">
 		<title>Journey Map</title>
@@ -11,17 +11,17 @@
 	</head>
 
 	<body>
-            <p> Hello {{uname}} </p>
+            <H1> Hello {{uname}} </H1>
 	  <script src="{{url_for('static', filename="js/script.js")}}"></script>
 		<div>
 			<canvas id="map_canvas"></canvas>
 		</div>
 
 
-		<button id="showmenu"> + </button>
+		<button id="showmenu"> Menu </button>
 
 		<div class= menu>
-			<ul id="menu">
+			<ul id="menu" style="list-style-type:none">
 				<li> Name of Journey </li>
 				<a href = "#"><li> Prepare </li> </a>
 				<a href = "#"><li> Journey Recap</li> </a>
@@ -31,12 +31,30 @@
 			</ul>
 		</div>
 
-		<script> $(".menu").toggle(); </script>
-
 		<script>
-			$("#showmenu").click(function(){
-				$(".menu").toggle();
-			});
+		var slidePushTime = 300; /* milliseconds */
+
+		var openMenu = function(){
+			$('.menu').animate({
+				bottom: "0"
+			}, slidePushTime);
+			$('.menu').addClass("open");
+			console.log('opening');
+		}
+		var closeMenu = function(){
+			$('.menu').animate({
+				bottom: "-100%"
+			}, slidePushTime);
+			$('.menu').removeClass("open");
+			console.log('closing');
+		}
+		var toggleMenu = function() {
+			$('.menu').hasClass("open") ? closeMenu() : openMenu()
+		}
+
+		$("#showmenu").click(function(){
+			toggleMenu();
+		});
 		</script>
 
 

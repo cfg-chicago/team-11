@@ -17,4 +17,3 @@ app.register_blueprint(controllers.blog)
 if __name__ == '__main__':
     # listen on external IPs
     app.run(host=config.env['host'], port=config.env['port'], debug=True)
-
