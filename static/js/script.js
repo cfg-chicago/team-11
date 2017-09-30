@@ -31,12 +31,21 @@ function loadNodes() {
 		
 		for(var j = 1, num = progress[pathway.name]; j < num; j++)
 		{
+            var new_popup = document.createElement('div');
+            new_popup.className = 'popup';
+            new_popup.id = 'test';
+
 			var new_node = document.createElement("div");
 			new_node.className = "node";
 			new_node.style.position = "absolute";
 			new_node.style.left = (map.pathways[i].x[j] * width) + offsetX;
 			new_node.style.top = (map.pathways[i].y[j] * height);
+
+            new_node.onClick();
+
 			map_element.appendChild(new_node);
+
+
 		}
 	}
 	
