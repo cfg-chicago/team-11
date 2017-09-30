@@ -8,7 +8,9 @@ main = Blueprint('main', __name__, template_folder='templates')
 def main_login():
     if request.method == 'POST':
         uname = request.form.get('uname')
+        print (uname)
         psw = request.form.get('psw')
+        print (psw)
         print('POST WAS RECEIVED')
 
         if check_login(uname,psw):
@@ -36,4 +38,4 @@ def check_login(uname, psw):
     results = cur.fetchall()
     print(results)
 
-    # return results[0]["Password"] == psw
+    return results[0]["Password"] == psw
