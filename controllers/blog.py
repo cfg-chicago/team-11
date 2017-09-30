@@ -8,10 +8,10 @@ blog = Blueprint('blog', __name__, template_folder='templates')
 def reflection_route():
     db = connect_to_database()
     cur = db.cursor()
-    
-    cur.execute('SELECT * FROM Blog WHERE Type = %s;' ('share'))
+    t = 'share'    
+    cur.execute('SELECT * FROM Blog;')
     blog_posts = cur.fetchall()
-
+    print blog_posts
     # results = cur.fetchall()
     options = {"blog_posts":blog_posts}
-    return render_template("reflection.html")
+    return render_template("blog.html", **options)
