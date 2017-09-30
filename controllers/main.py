@@ -12,8 +12,10 @@ def main_login():
 
         if (check_login(uname, psw)):
             return render_template("index.html", uname=uname)
+        else:
+            return "You don goofed"
 
-    return render_template('login.html')
+    return render_template('login.html', uname='$USER')
 
 @main.route('/')
 def main_hello():
@@ -30,5 +32,6 @@ def check_login(uname, psw):
     cur = db.cursor()
     cur.execute('SELECT Password FROM USERS WHERE Username="%s";', uname)
     results = cur.fetchall()
+    print(results)
 
     return results == psw
