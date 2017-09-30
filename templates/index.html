@@ -11,12 +11,17 @@
 	</head>
 
 	<body>
-            <H1> Hello {{uname}} </H1>
-	  <script src="{{url_for('static', filename="js/script.js")}}"></script>
+		<script src="{{url_for('static', filename="js/script.js")}}"></script>
+		
+		<div class="background-panes">
+  			<div id="map">
+  				<img id="background-img" src="img/chitown.png"/>
+  			</div>
+  		</div>
+		
 		<div>
-			<canvas id="map_canvas"></canvas>
+            <H1> Hello {{uname}} </H1>
 		</div>
-
 
 		<button id="showmenu"> Menu </button>
 
